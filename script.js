@@ -1,11 +1,11 @@
-// Assignment code here
+// characters to generate from 
 var chars = "abcdefghijklmopqestuvwxyz";
 var charsNum = "0123456789";
 var charsSpecial= "!@#$%^&*()";
 var charsUpper = "ABCDEFGHIJKLMOPQRSTUVWXYZ";
 var charsAll ="0123456789abcdefghijklmopqestuvwxyz!@#$%^&*()ABCDEFGHIJKLMOPQRSTUVWXYZ";
 
-
+//function to generate the PW
 function generatePassword() {
   window.alert("Please Select Password Criteria");
   var loopBreak = 0;
@@ -13,11 +13,12 @@ function generatePassword() {
   var pass = '';
   var charSelect = "0";
 
+  //loop to ensure user stays inside correct perimeters
   while(loopBreak ==0){
     var userOption = window.prompt("1.Password Length\n2.Which Character Types\n3.All\nPlease enter 1, 2, or 3");
     if(userOption == 1 ){
       pwLength = pwLengthFind();
-
+      //generates actual password
       for(var i=0; i < pwLength; i++){
         var randomNumber = Math.floor(Math.random()*charsAll.length);
         pass += charsAll.charAt(randomNumber);
@@ -26,6 +27,7 @@ function generatePassword() {
     }
     else if(userOption == 2){
       charSelect = charFind();
+      //generates actual password
       for(var i=0; i < 8; i++){
         var randomNumber = Math.floor(Math.random()*charSelect.length+1);
         pass += charSelect.charAt(randomNumber);
@@ -36,6 +38,7 @@ function generatePassword() {
       pwLength = pwLengthFind();
       charSelect = charFind();
       loopBreak =1;
+      //generates actual password
       for(var i=0; i < pwLength; i++){
         var randomNumber = Math.floor(Math.random()*charSelect.length+1);
         pass += charSelect.charAt(randomNumber);
@@ -49,7 +52,7 @@ function generatePassword() {
 
 
 }
-
+//finds length of PW
 function pwLengthFind(){
   var loopBreak= 0;
   while(loopBreak == 0){
@@ -59,7 +62,7 @@ function pwLengthFind(){
     }
   }
 }
-
+//Allows user to pick their characters
 function charFind(){
   //4 special characters user can mix and match from
     var selectType = undefined;
